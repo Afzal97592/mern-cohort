@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 function App() {
   const [socket, setSocket] = useState(null);
-  const wsRef = useRef();
+  const wsRef = useRef(null);
   const [messages, setMessages] = useState(["hi there"]);
   const [messageString, setMessageString] = useState("");
 

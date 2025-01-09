@@ -36,4 +36,38 @@ var reverse = function (x) {
   return x < 0 ? -1 * res : res;
 };
 
-console.log(reverse(1534236469));
+// console.log(reverse(1534236469));
+
+// flatten array
+
+const arr1 = [4, 2, [6, 3], [1, [9, 8]], 5];
+
+// console.log(arr.flat(Infinity))
+
+const flatArra = (arr) => {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "object") {
+      res.push(arr[i]);
+    } else {
+      const data = flatArra(arr[i]);
+      res.push(...data);
+    }
+  }
+  return res;
+};
+
+// Now find the maximum number from array
+
+const findMaximum = (arr) => {
+  let flattenArr = flatArra(arr);
+  let Max = -Infinity;
+  for (let i = 0; i < flattenArr.length; i++) {
+    if (flattenArr[i] > Max) {
+      Max = flattenArr[i];
+    }
+  }
+  return Max;
+};
+
+console.log("Max num is: ", findMaximum(arr1));
