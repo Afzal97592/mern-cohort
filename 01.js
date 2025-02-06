@@ -70,4 +70,35 @@ const findMaximum = (arr) => {
   return Max;
 };
 
-console.log("Max num is: ", findMaximum(arr1));
+// console.log("Max num is: ", findMaximum(arr1));
+
+let arr = [1, 1, 2, 2, 2, 2, 9];
+
+const getNumber = (arr) => {
+  let curEle = null;
+  let count = 0;
+  for (let num of arr) {
+    if (count === 0) {
+      curEle = num;
+    }
+    let increment = curEle === num ? 1 : -1;
+    count += increment;
+  }
+  return curEle;
+};
+
+// console.log(getNumber(arr));
+
+var removeDuplicates2 = function (arr) {
+  let newArr = arr.sort((a, b) => a - b);
+  let k = 1;
+  for (let i = 1; i < newArr.length; i++) {
+    if (newArr[i] !== newArr[i - 1]) {
+      newArr[k] = newArr[i];
+      k++;
+    }
+  }
+  return newArr.slice(0, k);
+};
+
+console.log(removeDuplicates2([0, 1, 0, 2, 1, 2, 3, 4, 3, 4]));
